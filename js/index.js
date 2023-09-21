@@ -7,11 +7,17 @@ const sufferingInputElement = formElement.querySelector("#suffering");
 
 const setName = (name) => {
   const deleteOffClass = document.querySelector("h2");
-  deleteOffClass.classList.remove(off);
+  deleteOffClass.classList.remove("off");
   const nameElement = document.querySelector(".name");
   nameElement.textContent = name;
-  findImage = document.queryselector("img").setAttribute("alt", name);
+  findImage = document.querySelector("img").setAttribute("alt", name);
 };
+
+const setAge(age) {
+
+  const age = new Date().getFullYear() - parseInt(age.split("/")[0]);
+
+}
 
 formElement.addEventListener("change", (event) => {
   switch (event.target) {
@@ -19,7 +25,7 @@ formElement.addEventListener("change", (event) => {
       setName(event.target.value);
       break;
     case birthdateInputElement:
-      // Invoca a la función para poner la edad
+      setAge(event.target.value)
       break;
     case pictureInputElement:
       // Invoca a la función para poner la imagen
